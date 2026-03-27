@@ -1,0 +1,32 @@
+[project]
+name = "data-service"
+version = "0.2.0"
+description = "Reddit Insight - 统一后端服务（数据采集 + LLM 分析）"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    # 数据采集
+    "apify-client>=2.5.0",
+    "apscheduler>=3.11.2",
+    # Web 框架
+    "fastapi>=0.135.2",
+    "httpx>=0.28.1",
+    "uvicorn>=0.42.0",
+    # 数据库
+    "sqlmodel>=0.0.37",
+    # 工具
+    "python-dotenv>=1.2.2",
+    "python-slugify>=8.0.4",
+    # LLM 分析（原 insight-service）
+    "litellm>=1.82.6",
+    "tiktoken>=0.12.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
